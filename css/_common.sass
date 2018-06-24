@@ -26,13 +26,22 @@
     font-size: 4rem
     // Espacio entre las letras
     letter-spacing: 10px
-    color: $color-gris
+    color: $color-negro
     text-align: center
 
 //  === SUBTITULO === 
 .subtitulo
     font-family: 'titulo'
     font-size: 2.75rem
+    color: $color-negro
+    text-align: center
+    letter-spacing: 2px
+    margin-bottom: 2rem
+
+//  === SUB-SUBTITULO === 
+.sub-subtitulo
+    font-family: 'titulo'
+    font-size: 2.4rem
     color: $color-negro
     text-align: center
     letter-spacing: 2px
@@ -63,7 +72,7 @@ header.header
                     .nav-item
                         position: relative
                         display: flex
-                        justify-content: center
+                        justify-content: flex-start
                         align-items: center
                         a.nav-link
                             padding: 0 1.5rem
@@ -73,6 +82,7 @@ header.header
                             transition: .5s all
                         .linea_nav
                             position: absolute
+                            left: 10%
                             width: 0%
                             height: 2px
                             background-color: $color-amarillo

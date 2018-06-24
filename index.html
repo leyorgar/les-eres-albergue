@@ -19,6 +19,8 @@
     <meta property="og:image" content="img/miniatura.png">
     <!--Enlaca el archivo CSS-->
     <link rel="stylesheet" href="css/main.css">
+    <!-- Enlaza fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 </head>
 
 <body>
@@ -62,9 +64,82 @@
             </div>
         </nav>
     </header>
-    <section>
+    <!-- Termina el navegador -->
 
-    </section>
+    <!-- Empieza el contenido de la página -->
+    <main class="page--principal">
+        <!-- Imagen de inicio -->
+        <section class="imagen-inicio">
+            <div class="icono"><a href="#bajoscroll"><i class="fas fa-angle-down"></i></a></div>
+        </section>
+        <!-- Linea vertical -->
+        <a name="bajoscroll"></a>
+        <div class="linea-vertical"></div>
+        <!-- Seccion servicios -->
+        <section class="servicios">
+            <h1 class="titulo">Servicios</h1>
+            <div class="row servicios-principal">
+                <!-- Columna 1 -->
+                <div class="col-sm-6 servicios-columna">
+                    <!-- Imagen -->
+                    <img class="img-fluid columna-icono" src="img/servicios/albergue.png" alt="Icono de un albergue">
+                    <!-- Texto -->
+                    <p class="texto">
+                        Nuestro albergue rural dispone de 20 plazas para pernoctar, distribuidas en dos habitaciones con 5 literas dobles cada una. 
+                    </p>
+                </div>
+                <!-- Fin de la Columna 1 -->
+                <!-- Columna 2 -->
+                <div class="col-sm-6 servicios-columna">
+                    <!-- Imagen -->
+                    <img class="img-fluid columna-icono" src="img/servicios/multiaventura.png" alt="Icono que representa actividades de multiaventura">
+                    <!-- Texto -->
+                    <p class="texto">
+                        Colaboramos con grieta-aventura que ofrecen actividades como kayak, paintball, escalada, barranquismo Acuático, vía ferrata, espeleología, rapel, senderismo, parapente...
+                    </p>
+                </div>
+            </div>
+            <h3 class="sub-subtitulo">Benisa para aventureros</h3>
+            <div class="imagen_iconos-aventura">
+                <img src="img/principal/iconos-aventura.svg" alt="iconos-aventura">
+            </div>
+        </section>
+        <!-- Linea vertical -->
+        <div class="linea-vertical"></div>
+        <!-- Imagen centro de la página con zoom -->
+        <section class="imagen-medio">
+            <div class="imagen"></div>
+        </section>
+        <!-- Linea vertical -->
+        <div class="linea-vertical"></div>
+        <!-- Seccion galeria -->
+        <section class="galeria">
+            <h1 class="titulo">Galería</h1>
+            <a href="galeria/">
+                <div class="row galeria-principal">
+                    <div class="col-sm galeria-col col-izq"></div>
+                    <div class="col-sm galeria-col col-centro"></div>
+                    <div class="col-sm galeria-col col-drcha"></div>
+                </div>
+            </a>
+        </section>
+        <!-- Linea vertical -->
+        <div class="linea-vertical"></div>
+        <!-- Seccion contacto -->
+        <section class="contacto">
+            <h1 class="titulo">Contacto</h1>
+            <div class="contacto_mapa">
+                <div class="mapa_direccion">
+                    <h3 class="sub-subtitulo">Donde encontrarnos</h3>
+                    <p class="texto">Partida nº1, 03814 Benasau, Spain</p>
+                </div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3113.649206842179!2d-0.5274078574295478!3d38.702901443105645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd61812d49d79143%3A0xee50fe8bdeffce0!2sUnnamed+Road%2C+03819+Alcoy%2C+Alicante!5e0!3m2!1ses!2ses!4v1529841127857" width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+        </section>
+    </main>
+    <!-- Termina el contenido de la página -->
+
+    <!-- Empieza el footer -->
     <footer class="footer">
         <div class="container">
             <div class="redes">
@@ -83,6 +158,7 @@
             <p>info@leseres.com</p>
         </div>
     </footer>
+    <!-- Termina el footer -->
 </body>
 
 </html>

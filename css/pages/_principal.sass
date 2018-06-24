@@ -1,0 +1,92 @@
+@keyframes zoom
+    from
+        transform: scale(1)
+    to
+        transform: scale(1.2)
+    
+main.page--principal
+    section.imagen-inicio
+        height: calc(100vh - 112px)
+        position: relative
+        background-image: url(../img/principal/imagen-principal.jpg)
+        background-size: cover
+        background-position: center center
+        background-repeat: no-repeat
+        .icono
+            position: absolute
+            bottom: 1rem
+            left: 0
+            right: 0
+            width: 100%
+            text-align: center
+            font-size: 2rem
+            a
+                color: $color-blanco
+    section.servicios
+        margin-bottom: 3rem
+        .servicios-principal
+            max-width: 85%
+            margin: 2rem auto
+            // - Columnas - 
+            .servicios-columna
+                margin: 0 auto
+                max-width: 35%
+                padding: 1rem
+                //  - Icono de la columna -
+                .columna-icono
+                    display: block
+                    margin: 0 auto
+                    margin-bottom: 2rem
+                    height: 9rem
+                    width: auto
+                .texto
+                    text-align: center
+        .imagen_iconos-aventura
+            margin: 0 auto
+            max-width: 470px
+    section.imagen-medio
+        height: 500px
+        overflow: hidden
+        .imagen
+            height: 100%
+            background-image: url(../img/principal/imagen-medio.jpg)
+            background-size: cover
+            background-position: center center
+            background-repeat: no-repeat
+            animation-name: zoom
+            animation-duration: 15s
+            animation-iteration-count: infinite
+            animation-direction: alternate
+    section.galeria
+        .galeria-principal
+            margin-top: 2rem
+            .galeria-col
+                max-width: calc(100% / 3)
+                height: 300px
+                background-size: cover
+                background-repeat: no-repeat
+                background-position: center center
+            .col-izq
+                background-image: url(../img/principal/imagen-galeria-izq.jpg)
+            .col-centro
+                background-image: url(../img/principal/imagen-galeria-centro.jpg)
+            .col-drcha
+                background-image: url(../img/principal/imagen-galeria-drcha.jpg)
+    section.contacto
+        .contacto_mapa
+            margin-top: 2rem
+            width: 100%
+            height: 450px
+            .mapa_direccion
+                display: flex
+                flex-direction: column
+                justify-content: center
+                align-items: center
+                height: 100px
+                background-color: $color-amarillo
+                h3
+                    margin: 0
+                    color: $color-blanco
+                p
+                    margin: 0
+                    color: $color-blanco
