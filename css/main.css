@@ -307,3 +307,53 @@ main.page--tarifas section.tarifas .tarifas_precios {
     margin: 1rem auto; }
     main.page--tarifas section.tarifas .tarifas_precios .precios_comida img {
       width: 100px; }
+
+main.page--galeria section.galeria .sub-subtitulo {
+  margin: 2rem 0;
+  letter-spacing: 10px; }
+
+main.page--galeria section.galeria .galeria-multiaventura {
+  margin-top: 2rem; }
+  main.page--galeria section.galeria .galeria-multiaventura .galeria-col {
+    margin-bottom: 2rem;
+    max-width: calc(100% / 3);
+    height: 300px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center; }
+  main.page--galeria section.galeria .galeria-multiaventura .col-izq {
+    background-image: url(../img/galeria/multiaventura-izq.jpg); }
+  main.page--galeria section.galeria .galeria-multiaventura .col-drcha {
+    background-image: url(../img/galeria/multiaventura-drcha.jpg); }
+
+main.page--galeria section.galeria .galeria-instalaciones {
+  margin-top: 2rem; }
+  main.page--galeria section.galeria .galeria-instalaciones .galeria-col {
+    margin-bottom: 2rem;
+    max-width: calc(100% / 3);
+    height: 300px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center; }
+  main.page--galeria section.galeria .galeria-instalaciones .col-izq {
+    background-image: url(../img/galeria/instalaciones-izq.jpg); }
+  main.page--galeria section.galeria .galeria-instalaciones .col-centro {
+    background-image: url(../img/galeria/instalaciones-centro.jpg); }
+  main.page--galeria section.galeria .galeria-instalaciones .col-drcha {
+    background-image: url(../img/galeria/instalaciones-drcha.jpg); }
+
+main.page--galeria section.galeria .galeria-alrededor {
+  margin-top: 2rem; }
+  main.page--galeria section.galeria .galeria-alrededor .galeria-col {
+    margin-bottom: 2rem;
+    max-width: calc(100% / 3);
+    height: 300px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center; }
+  main.page--galeria section.galeria .galeria-alrededor .col-izq {
+    background-image: url(../img/galeria/alrededor-izq.jpg); }
+  main.page--galeria section.galeria .galeria-alrededor .col-centro {
+    background-image: url(../img/galeria/alrededor-centro.jpg); }
+  main.page--galeria section.galeria .galeria-alrededor .col-drcha {
+    background-image: url(../img/galeria/alrededor-drcha.jpg); }
