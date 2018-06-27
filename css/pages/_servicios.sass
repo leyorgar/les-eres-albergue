@@ -15,7 +15,20 @@
                     height: 6rem
                     width: auto
     //  === TERMINA SECCION SERVICIOS ===
-
+    //  === IMAGEN DEL MEDIO CON ZOOM ===
+    section.imagen-medio
+        height: 500px
+        overflow: hidden
+        .imagen
+            height: 100%
+            background-image: url(../img/principal/imagen-medio.jpg)
+            background-size: cover
+            background-position: center center
+            background-repeat: no-repeat
+            animation-name: zoom
+            animation-duration: 25s
+            animation-iteration-count: infinite
+            animation-direction: alternate
     //  === EMPIEZA SECCION BENASAU ===
     section.benasau
         .texto-introduccion
