@@ -1,0 +1,15 @@
+/* TEAM */
+
+	Graphic designer and Web Designer: Alberto Maestro Montero
+    Web: www.enunlugardelaweb.es
+	From: La Roda, Albacete, Spain
+
+    Graphic designer and Web Designer: Leyre Ortiz García
+    Web: www.leyredesign.es
+	From: Alicante, Alicante, Spain
+
+/* SITE */
+	Last update: 2018/07/01
+	Language: Castellano
+	Doctype: HTML5
+	IDE: Sublime Text, Notepad++, FileZilla, Illustrator, Prepos
