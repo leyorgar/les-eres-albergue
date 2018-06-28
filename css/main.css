@@ -1,16 +1,13 @@
 @import url(vendor/bootstrap/bootstrap.css);
 @font-face {
-  font-family: 'titulo';
+  font-family: "titulo";
   src: url(../fonts/OstrichSans-Medium.woff2); }
-
 @font-face {
-  font-family: 'principal';
+  font-family: "principal";
   src: url(../fonts/Roboto-Light.woff2); }
-
 @font-face {
-  font-family: 'negrita';
+  font-family: "negrita";
   src: url(../fonts/Roboto-Regular.woff2); }
-
 .row {
   margin: 0; }
 
@@ -35,14 +32,14 @@ a {
   border-right: 1.5px solid #4D4D4D; }
 
 .titulo {
-  font-family: 'titulo';
+  font-family: "titulo";
   font-size: 4rem;
   letter-spacing: 10px;
   color: #000000;
   text-align: center; }
 
 .subtitulo {
-  font-family: 'titulo';
+  font-family: "titulo";
   font-size: 2.75rem;
   color: #000000;
   text-align: center;
@@ -50,7 +47,7 @@ a {
   margin-bottom: 2rem; }
 
 .sub-subtitulo {
-  font-family: 'titulo';
+  font-family: "titulo";
   font-size: 2.4rem;
   color: #000000;
   text-align: center;
@@ -58,7 +55,7 @@ a {
   margin-bottom: 2rem; }
 
 .texto {
-  font-family: 'principal';
+  font-family: "principal";
   font-size: 1rem;
   color: #4D4D4D;
   line-height: 1.8rem;
@@ -123,24 +120,14 @@ header.header .navbar {
   header.header .navbar .navbar-collapse .navbar-nav {
     display: block; }
     header.header .navbar .navbar-collapse .navbar-nav .nav_arriba, header.header .navbar .navbar-collapse .navbar-nav .nav_abajo {
-      display: -webkit-box;
-      display: -ms-flexbox;
       display: flex;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
       justify-content: center;
-      font-family: 'titulo';
+      font-family: "titulo";
       font-size: 2rem; }
       header.header .navbar .navbar-collapse .navbar-nav .nav_arriba .nav-item, header.header .navbar .navbar-collapse .navbar-nav .nav_abajo .nav-item {
         position: relative;
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
-        -webkit-box-pack: start;
-        -ms-flex-pack: start;
         justify-content: flex-start;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
         align-items: center; }
         header.header .navbar .navbar-collapse .navbar-nav .nav_arriba .nav-item a.nav-link, header.header .navbar .navbar-collapse .navbar-nav .nav_abajo .nav-item a.nav-link {
           font-weight: initial;
@@ -148,9 +135,7 @@ header.header .navbar {
           color: #000000; }
         header.header .navbar .navbar-collapse .navbar-nav .nav_arriba .nav-item:hover .linea_nav, header.header .navbar .navbar-collapse .navbar-nav .nav_abajo .nav-item:hover .linea_nav {
           width: 80%;
-          -webkit-transition: .5s all;
-          -o-transition: .5s all;
-          transition: .5s all; }
+          transition: 0.5s all; }
         header.header .navbar .navbar-collapse .navbar-nav .nav_arriba .nav-item .linea_nav, header.header .navbar .navbar-collapse .navbar-nav .nav_abajo .nav-item .linea_nav {
           position: absolute;
           left: 10%;
@@ -164,22 +149,16 @@ footer.footer {
   background-color: #4D4D4D;
   color: #ffffff;
   text-align: center;
-  font-family: 'principal'; }
+  font-family: "principal"; }
   footer.footer .container {
     padding: 3rem 0 2.6rem 0; }
     footer.footer .container .redes {
-      display: -webkit-box;
-      display: -ms-flexbox;
       display: flex;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
       justify-content: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
       align-items: center;
       padding-bottom: 1rem; }
       footer.footer .container .redes a {
-        padding: 0 .5rem; }
+        padding: 0 0.5rem; }
         footer.footer .container .redes a img {
           width: 30px; }
     footer.footer .container p, footer.footer .container a {
@@ -188,22 +167,11 @@ footer.footer {
       color: #ffffff;
       font-weight: initial; }
 
-@-webkit-keyframes zoom {
-  from {
-    -webkit-transform: scale(1);
-    transform: scale(1); }
-  to {
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2); } }
-
 @keyframes zoom {
   from {
-    -webkit-transform: scale(1);
     transform: scale(1); }
   to {
-    -webkit-transform: scale(1.2);
     transform: scale(1.2); } }
-
 main.page--principal section.imagen-inicio {
   height: calc(100vh - 112px);
   position: relative;
@@ -227,7 +195,6 @@ main.page--principal section.imagen-inicio {
         display: none; } }
     main.page--principal section.imagen-inicio .icono a {
       color: #ffffff; }
-
 main.page--principal section.servicios {
   margin-bottom: 3rem; }
   main.page--principal section.servicios .servicios-principal {
@@ -235,9 +202,6 @@ main.page--principal section.servicios {
     margin: 2rem auto; }
     @media all and (max-width: 830px) {
       main.page--principal section.servicios .servicios-principal {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
         flex-direction: column; } }
     main.page--principal section.servicios .servicios-principal .servicios-columna {
       margin: 0 auto;
@@ -245,21 +209,12 @@ main.page--principal section.servicios {
       padding: 1rem; }
       @media all and (max-width: 830px) {
         main.page--principal section.servicios .servicios-principal .servicios-columna {
-          display: -webkit-box;
-          display: -ms-flexbox;
           display: flex;
-          -webkit-box-pack: justify;
-          -ms-flex-pack: justify;
           justify-content: space-between;
-          -webkit-box-align: center;
-          -ms-flex-align: center;
           align-items: center;
           max-width: 650px; } }
       @media all and (max-width: 540px) {
         main.page--principal section.servicios .servicios-principal .servicios-columna {
-          -webkit-box-orient: vertical;
-          -webkit-box-direction: normal;
-          -ms-flex-direction: column;
           flex-direction: column; } }
       main.page--principal section.servicios .servicios-principal .servicios-columna .columna-icono {
         display: block;
@@ -276,19 +231,12 @@ main.page--principal section.servicios {
     max-width: 470px; }
     @media all and (max-width: 540px) {
       main.page--principal section.servicios .imagen_iconos-aventura {
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
         justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
         align-items: center; } }
     @media all and (max-width: 540px) {
       main.page--principal section.servicios .imagen_iconos-aventura img {
         width: 90%; } }
-
 main.page--principal section.imagen-medio {
   height: 500px;
   overflow: hidden; }
@@ -298,15 +246,10 @@ main.page--principal section.imagen-medio {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    -webkit-animation-name: zoom;
     animation-name: zoom;
-    -webkit-animation-duration: 25s;
     animation-duration: 25s;
-    -webkit-animation-iteration-count: infinite;
     animation-iteration-count: infinite;
-    -webkit-animation-direction: alternate;
     animation-direction: alternate; }
-
 main.page--principal section.galeria .galeria-principal {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
@@ -322,24 +265,14 @@ main.page--principal section.galeria .galeria-principal {
     background-image: url(../img/principal/imagen-galeria-centro.jpg); }
   main.page--principal section.galeria .galeria-principal .col-drcha {
     background-image: url(../img/principal/imagen-galeria-drcha.jpg); }
-
 main.page--principal section.contacto .contacto_mapa {
   margin-top: 2rem;
   width: 100%;
   height: 450px; }
   main.page--principal section.contacto .contacto_mapa .mapa_direccion {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
     height: 100px;
     background-color: #F8D859; }
@@ -361,7 +294,6 @@ main.page--principal section.contacto .contacto_mapa {
       margin-bottom: 2rem;
       height: 6rem;
       width: auto; }
-
 .page--servicios section.imagen-medio {
   height: 500px;
   overflow: hidden; }
@@ -371,21 +303,15 @@ main.page--principal section.contacto .contacto_mapa {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    -webkit-animation-name: zoom;
     animation-name: zoom;
-    -webkit-animation-duration: 25s;
     animation-duration: 25s;
-    -webkit-animation-iteration-count: infinite;
     animation-iteration-count: infinite;
-    -webkit-animation-direction: alternate;
     animation-direction: alternate; }
-
 .page--servicios section.benasau .texto-introduccion {
   font-size: 1.2rem;
   text-align: center;
   max-width: 70%;
   margin: 2rem auto; }
-
 .page--servicios section.benasau .row {
   max-width: 85%;
   margin: 3rem auto; }
@@ -400,7 +326,6 @@ main.page--principal section.contacto .contacto_mapa {
   margin-bottom: 2rem; }
   .page--nosotros .nosotros-informacion .imagen {
     padding: 0; }
-
 .page--nosotros .nosotros-benasau .benasau-info {
   margin: 2rem 0; }
   .page--nosotros .nosotros-benasau .benasau-info .subtitulo {
@@ -414,33 +339,17 @@ main.page--tarifas section.tarifas .texto {
   @media all and (max-width: 920px) {
     main.page--tarifas section.tarifas .texto {
       max-width: 90%; } }
-
 main.page--tarifas section.tarifas .tarifas_precios {
   margin: 2rem; }
   main.page--tarifas section.tarifas .tarifas_precios .precios {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
     justify-content: space-between;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center; }
     main.page--tarifas section.tarifas .tarifas_precios .precios .conjunto {
       margin: 1rem 0;
-      display: -webkit-box;
-      display: -ms-flexbox;
       display: flex;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
       justify-content: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
       align-items: center;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: column;
       flex-direction: column; }
       main.page--tarifas section.tarifas .tarifas_precios .precios .conjunto .sub-subtitulo {
         font-size: 1.7rem; }
@@ -468,12 +377,22 @@ main.page--tarifas section.tarifas .tarifas_precios {
       main.page--tarifas section.tarifas .tarifas_precios .precios_complementos {
         display: grid;
         grid-template-columns: repeat(auto-fit, 100%); } }
+<<<<<<< HEAD
     @media all and (max-width: 750px) {
       main.page--tarifas section.tarifas .tarifas_precios .precios_complementos .rezagado {
         grid-column: 1/3; } }
     @media all and (max-width: 430px) {
       main.page--tarifas section.tarifas .tarifas_precios .precios_complementos .rezagado {
         grid-column: 1/2; } }
+=======
+  @media all and (max-width: 430px) and (max-width: 750px) {
+    main.page--tarifas section.tarifas .tarifas_precios .precios_complementos .rezagado {
+      grid-column: 1/3; } }
+  @media all and (max-width: 430px) and (max-width: 430px) {
+    main.page--tarifas section.tarifas .tarifas_precios .precios_complementos .rezagado {
+      grid-column: 1/2; } }
+
+>>>>>>> daa916fab6f1f088b8ab417145d761709c852f38
   main.page--tarifas section.tarifas .tarifas_precios .precios_comida {
     max-width: 440px;
     margin: 0rem auto; }
@@ -485,7 +404,6 @@ main.page--tarifas section.tarifas .tarifas_precios {
 main.page--galeria section.galeria .sub-subtitulo {
   margin: 2rem 0;
   letter-spacing: 10px; }
-
 main.page--galeria section.galeria .galeria-multiaventura {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
@@ -509,8 +427,6 @@ main.page--galeria section.galeria .galeria-multiaventura {
   @media all and (max-width: 600px) {
     main.page--galeria section.galeria .galeria-multiaventura .col-centro {
       grid-column: 1/2;
-      -webkit-box-ordinal-group: 3;
-      -ms-flex-order: 2;
       order: 2; } }
   @media all and (max-width: 1000px) {
     main.page--galeria section.galeria .galeria-multiaventura .col-centro iframe {
@@ -519,10 +435,7 @@ main.page--galeria section.galeria .galeria-multiaventura {
     background-image: url(../img/galeria/multiaventura-drcha.jpg); }
     @media all and (max-width: 1000px) {
       main.page--galeria section.galeria .galeria-multiaventura .col-drcha {
-        -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
         order: 1; } }
-
 main.page--galeria section.galeria .galeria-instalaciones {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
@@ -550,7 +463,6 @@ main.page--galeria section.galeria .galeria-instalaciones {
     @media all and (max-width: 600px) {
       main.page--galeria section.galeria .galeria-instalaciones .col-drcha {
         grid-column: 1/2; } }
-
 main.page--galeria section.galeria .galeria-alrededor {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
@@ -573,8 +485,6 @@ main.page--galeria section.galeria .galeria-alrededor {
     background-image: url(../img/galeria/alrededor-centro.jpg); }
     @media all and (max-width: 1000px) {
       main.page--galeria section.galeria .galeria-alrededor .col-centro {
-        -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
         order: 2;
         grid-column: 1/3; } }
     @media all and (max-width: 600px) {
@@ -585,25 +495,18 @@ main.page--galeria section.galeria .galeria-alrededor {
     background-position: bottom center; }
     @media all and (max-width: 1000px) {
       main.page--galeria section.galeria .galeria-alrededor .col-drcha {
-        -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
         order: 1; } }
 
 .page--contacto .mapa {
   padding: 0; }
   .page--contacto .mapa iframe {
     width: 100%; }
-
 .page--contacto .alinear-nosotros {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
   justify-content: flex-start;
-  -webkit-box-align: end;
-  -ms-flex-align: end;
   align-items: flex-end; }
   .page--contacto .alinear-nosotros p.texto {
-    padding-bottom: .5rem;
+    padding-bottom: 0.5rem;
     margin: 0; }
+
+/*# sourceMappingURL=main.css.map */
