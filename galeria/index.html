@@ -19,21 +19,47 @@
     <meta property="og:image" content="img/miniatura.png">
     <!--Enlaca el archivo CSS-->
     <link rel="stylesheet" href="../css/main.css">
+    <!-- Enlaza fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <!-- link Vue -->
+    <script src="../js/vue.min.js"></script>
+    <script>
+        // Nueva nomenclatura para inicial script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cada vez que se inicie un VUE se pondrá este texto
+            var app = new Vue({
+                el: '#app',
+                // Las variables
+                data: {
+                    menuResponsive: false
+                },
+                //Crear evento
+                mounted: function () {
+                    this.menuResponsive = false
+                },
+                methods: {
+                    mostrarOcultarMenu: function () {
+                        this.menuResponsive =! this.menuResponsive
+                    }
+                }
+            })
+        })
+    </script>
 </head>
 
 <body>
-    <header class="header">
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="../">
-                <img class="img-fluid" src="../img/logo.svg" alt="Logotipo de la empresa">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <div class="nav_arriba">
+    <div id="app">
+        <header class="header">
+            <nav v-bind:class="{ 'fixed-top': menuResponsive }" class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="../">
+                    <img class="img-fluid" src="../img/logo.svg" alt="Logotipo de la empresa">
+                </a>
+                <button @click="mostrarOcultarMenu" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i v-if="!menuResponsive" class="fas fa-bars"></i>
+                    <i v-if="menuResponsive" class="fas fa-times"></i>
+                </button>
+                <div v-if="menuResponsive" class="navbar-responsive">
+                    <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="../servicios/">Servicios</a>
                             <div class="linea_nav"></div>
@@ -42,8 +68,6 @@
                             <a class="nav-link" href="../tarifas/">Tarifas</a>
                             <div class="linea_nav"></div>
                         </li>
-                    </div>
-                    <div class="nav_abajo">
                         <li class="nav-item">
                             <a class="nav-link" href="../galeria/">Galería</a>
                             <div class="linea_nav active"></div>
@@ -56,72 +80,100 @@
                             <a class="nav-link" href="../contacto/">Contacto</a>
                             <div class="linea_nav"></div>
                         </li>
-                    </div>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <main class="page--galeria">
-        <!-- Imagen scroll -->
-        <div class="imagen-portada"></div>
-        <section class="galeria">
-            <!-- Linea vertical -->
-            <div class="linea-vertical"></div>
-            <!-- Titulo de la seccion -->
-            <h1 class="titulo">Galería</h1>
-            <!-- Contenido de la seccion -->
-            <!-- Linea vertical -->
-            <div class="linea-vertical"></div>
-            <h3 class="sub-subtitulo">Multiaventura</h3>
-            <!-- Fotos Multiaventura -->
-            <div class="galeria-multiaventura">
-                <div class="galeria-col col-izq"></div>
-                <div class="galeria-col col-centro d-flex justify-content-center">
-                    <iframe width="560" height="auto" src="https://www.youtube.com/embed/PBBFbnxYMik" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </ul>
                 </div>
-                <div class="galeria-col col-drcha"></div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <div class="nav_arriba">
+                            <li class="nav-item">
+                                <a class="nav-link" href="../servicios/">Servicios</a>
+                                <div class="linea_nav"></div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../tarifas/">Tarifas</a>
+                                <div class="linea_nav"></div>
+                            </li>
+                        </div>
+                        <div class="nav_abajo">
+                            <li class="nav-item">
+                                <a class="nav-link" href="../galeria/">Galería</a>
+                                <div class="linea_nav active"></div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../nosotros/">Nosotros</a>
+                                <div class="linea_nav"></div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../contacto/">Contacto</a>
+                                <div class="linea_nav"></div>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main class="page--galeria">
+            <!-- Imagen scroll -->
+            <div class="imagen-portada"></div>
+            <section class="galeria">
+                <!-- Linea vertical -->
+                <div class="linea-vertical"></div>
+                <!-- Titulo de la seccion -->
+                <h1 class="titulo">Galería</h1>
+                <!-- Contenido de la seccion -->
+                <!-- Linea vertical -->
+                <div class="linea-vertical"></div>
+                <h3 class="sub-subtitulo">Multiaventura</h3>
+                <!-- Fotos Multiaventura -->
+                <div class="galeria-multiaventura">
+                    <div class="galeria-col col-izq"></div>
+                    <div class="galeria-col col-centro d-flex justify-content-center">
+                        <iframe width="560" height="auto" src="https://www.youtube.com/embed/PBBFbnxYMik" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="galeria-col col-drcha"></div>
+                </div>
+                <!-- Linea vertical -->
+                <div class="linea-vertical"></div>
+                <h3 class="sub-subtitulo">Instalaciones</h3>
+                <!-- Fotos Instalaciones -->
+                <div class="galeria-instalaciones">
+                    <div class="galeria-col col-izq"></div>
+                    <div class="galeria-col col-centro"></div>
+                    <div class="galeria-col col-drcha"></div>
+                </div>
+                <!-- Linea vertical -->
+                <div class="linea-vertical"></div>
+                <h3 class="sub-subtitulo">Alrededor</h3>
+                <!-- Fotos Alrededor -->
+                <div class="galeria-alrededor">
+                    <div class="galeria-col col-izq"></div>
+                    <div class="galeria-col col-centro"></div>
+                    <div class="galeria-col col-drcha"></div>
+                </div>
+                <!-- Linea vertical -->
+                <div class="linea-vertical"></div>
+            </section>
+        </main>
+        <!-- Empieza el footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="redes">
+                    <a href="https://www.facebook.com/AlbergueLesEres/" target="_blank">
+                        <img src="../img/footer/logo-facebook.svg" alt="logo-facebook">
+                    </a>
+                    <a href="https://www.instagram.com/am_designer_am/" target="_blank">
+                        <img src="../img/footer/logo-instagram.svg" alt="logo-instagram">
+                    </a>
+                    <a href="https://www.twitter.com/am_designer_am/" target="_blank">
+                        <img src="../img/footer/logo-twitter.svg" alt="logo-twitter">
+                    </a>
+                </div>
+                <p>865 608 493</p>
+                <p>Partida nº1, 03814 Benasau, Spain</p>
+                <p>info@leseres.com</p>
             </div>
-            <!-- Linea vertical -->
-            <div class="linea-vertical"></div>
-            <h3 class="sub-subtitulo">Instalaciones</h3>
-            <!-- Fotos Instalaciones -->
-            <div class="galeria-instalaciones">
-                <div class="galeria-col col-izq"></div>
-                <div class="galeria-col col-centro"></div>
-                <div class="galeria-col col-drcha"></div>
-            </div>
-            <!-- Linea vertical -->
-            <div class="linea-vertical"></div>
-            <h3 class="sub-subtitulo">Alrededor</h3>
-            <!-- Fotos Alrededor -->
-            <div class="galeria-alrededor">
-                <div class="galeria-col col-izq"></div>
-                <div class="galeria-col col-centro"></div>
-                <div class="galeria-col col-drcha"></div>
-            </div>
-            <!-- Linea vertical -->
-            <div class="linea-vertical"></div>
-        </section>
-    </main>
-    <!-- Empieza el footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="redes">
-                <a href="https://www.facebook.com/AlbergueLesEres/" target="_blank">
-                    <img src="../img/footer/logo-facebook.svg" alt="logo-facebook">
-                </a>
-                <a href="https://www.instagram.com/am_designer_am/" target="_blank">
-                    <img src="../img/footer/logo-instagram.svg" alt="logo-instagram">
-                </a>
-                <a href="https://www.twitter.com/am_designer_am/" target="_blank">
-                    <img src="../img/footer/logo-twitter.svg" alt="logo-twitter">
-                </a>
-            </div>
-            <p>865 608 493</p>
-            <p>Partida nº1, 03814 Benasau, Spain</p>
-            <p>info@leseres.com</p>
-        </div>
-    </footer>
+        </footer>
+    </div>
 </body>
 
 </html>

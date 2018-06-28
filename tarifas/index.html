@@ -19,21 +19,47 @@
     <meta property="og:image" content="img/miniatura.png">
     <!--Enlaca el archivo CSS-->
     <link rel="stylesheet" href="../css/main.css">
+    <!-- Enlaza fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <!-- link Vue -->
+    <script src="../js/vue.min.js"></script>
+    <script>
+        // Nueva nomenclatura para inicial script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cada vez que se inicie un VUE se pondrá este texto
+            var app = new Vue({
+                el: '#app',
+                // Las variables
+                data: {
+                    menuResponsive: false
+                },
+                //Crear evento
+                mounted: function () {
+                    this.menuResponsive = false
+                },
+                methods: {
+                    mostrarOcultarMenu: function () {
+                        this.menuResponsive =! this.menuResponsive
+                    }
+                }
+            })
+        })
+    </script>
 </head>
 
 <body>
-    <header class="header">
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="../">
-                <img class="img-fluid" src="../img/logo.svg" alt="Logotipo de la empresa">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <div class="nav_arriba">
+    <div id="app">
+        <header class="header">
+            <nav v-bind:class="{ 'fixed-top': menuResponsive }" class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="../">
+                    <img class="img-fluid" src="../img/logo.svg" alt="Logotipo de la empresa">
+                </a>
+                <button @click="mostrarOcultarMenu" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i v-if="!menuResponsive" class="fas fa-bars"></i>
+                    <i v-if="menuResponsive" class="fas fa-times"></i>
+                </button>
+                <div v-if="menuResponsive" class="navbar-responsive">
+                    <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="../servicios/">Servicios</a>
                             <div class="linea_nav"></div>
@@ -42,8 +68,6 @@
                             <a class="nav-link" href="../tarifas/">Tarifas</a>
                             <div class="linea_nav active"></div>
                         </li>
-                    </div>
-                    <div class="nav_abajo">
                         <li class="nav-item">
                             <a class="nav-link" href="../galeria/">Galería</a>
                             <div class="linea_nav"></div>
@@ -56,99 +80,127 @@
                             <a class="nav-link" href="../contacto/">Contacto</a>
                             <div class="linea_nav"></div>
                         </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <div class="nav_arriba">
+                            <li class="nav-item">
+                                <a class="nav-link" href="../servicios/">Servicios</a>
+                                <div class="linea_nav"></div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../tarifas/">Tarifas</a>
+                                <div class="linea_nav active"></div>
+                            </li>
+                        </div>
+                        <div class="nav_abajo">
+                            <li class="nav-item">
+                                <a class="nav-link" href="../galeria/">Galería</a>
+                                <div class="linea_nav"></div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../nosotros/">Nosotros</a>
+                                <div class="linea_nav"></div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../contacto/">Contacto</a>
+                                <div class="linea_nav"></div>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main class="page--tarifas">
+            <!-- Imagen scroll -->
+            <div class="imagen-portada"></div>
+            <section class="tarifas">
+                <!-- Linea vertical -->
+                <div class="linea-vertical"></div>
+                <!-- Titulo de la seccion -->
+                <h1 class="titulo">Tarifas</h1>
+                <!-- Contenido de la seccion -->
+                <p class="texto">
+                    A continuación mostraremos las tarifas básicas del albergue. Los precios varían dependiendo de si nos encontramos en temporada alta o baja. De igual manera, exiten tarifas especiales para grupos y packs de multiaventura con noche incluída. Para más información, <strong>consulte con nosotros</strong>.
+                </p>
+                <div class="tarifas_precios">
+                    <div class="precios precios_alojamiento">
+                        <div class="conjunto">
+                            <img class="img-fluid" src="../img/tarifas/noche.svg" alt="logo-noche">
+                            <p class="sub-subtitulo m-0">noche</p>
+                            <p class="texto">9,50€ - 8,50€</p>
+                        </div>
+                        <div class="conjunto">
+                            <img class="img-fluid" src="../img/tarifas/desayuno.svg" alt="logo-desayuno">
+                            <p class="sub-subtitulo m-0">noche y desayuno</p>
+                            <p class="texto">12,00€ - 11,00€</p>
+                        </div>
+                        <div class="conjunto">
+                            <img class="img-fluid" src="../img/tarifas/pension.svg" alt="logo-pension">
+                            <p class="sub-subtitulo m-0">pensión</p>
+                            <p class="texto">25,50€ - 24,00€</p>
+                        </div>
+                        <div class="conjunto">
+                            <img class="img-fluid" src="../img/tarifas/media-pension.svg" alt="logo-media-pension">
+                            <p class="sub-subtitulo m-0">media pensión</p>
+                            <p class="texto">19,00€ - 18,00€</p>
+                        </div>
                     </div>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <main class="page--tarifas">
-        <!-- Imagen scroll -->
-        <div class="imagen-portada"></div>
-        <section class="tarifas">
+                    <div class="precios precios_complementos">
+                        <div class="conjunto">
+                            <img class="img-fluid" src="../img/tarifas/sabanas.svg" alt="logo-sabanas">
+                            <p class="sub-subtitulo m-0">sabanas y mantas</p>
+                            <p class="texto">1,00€</p>
+                        </div>
+                        <div class="conjunto">
+                            <img class="img-fluid" src="../img/tarifas/ducha.svg" alt="logo-ducha">
+                            <p class="sub-subtitulo m-0">ducha</p>
+                            <p class="texto">1,00€</p>
+                        </div>
+                        <div class="rezagado conjunto">
+                            <img class="img-fluid" src="../img/tarifas/bici.svg" alt="logo-bici">
+                            <p class="sub-subtitulo m-0">garaje y limpieza de bici</p>
+                            <p class="texto">2,50€</p>
+                        </div>
+                    </div>
+                    <div class="precios precios_comida">
+                        <div class="conjunto">
+                            <img class="img-fluid" src="../img/tarifas/menu-diario.svg" alt="logo-menu-diario">
+                            <p class="sub-subtitulo m-0">menú diario</p>
+                            <p class="texto">9,00€</p>
+                        </div>
+                        <div class="conjunto">
+                            <img class="img-fluid" src="../img/tarifas/menu-finde.svg" alt="logo-menu-finde">
+                            <p class="sub-subtitulo m-0">menú fin de semana</p>
+                            <p class="texto">12,00€</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <!-- Linea vertical -->
             <div class="linea-vertical"></div>
-            <!-- Titulo de la seccion -->
-            <h1 class="titulo">Tarifas</h1>
-            <!-- Contenido de la seccion -->
-            <p class="texto">
-                A continuación mostraremos las tarifas básicas del albergue. Los precios varían dependiendo de si nos encontramos en temporada alta o baja. De igual manera, exiten tarifas especiales para grupos y packs de multiaventura con noche incluída. Para más información, <strong>consulte con nosotros</strong>.
-            </p>
-            <div class="tarifas_precios">
-                <div class="precios precios_alojamiento">
-                    <div class="conjunto">
-                        <img class="img-fluid" src="../img/tarifas/noche.svg" alt="logo-noche">
-                        <p class="sub-subtitulo m-0">noche</p>
-                        <p class="texto">9,50€ - 8,50€</p>
-                    </div>
-                    <div class="conjunto">
-                        <img class="img-fluid" src="../img/tarifas/desayuno.svg" alt="logo-desayuno">
-                        <p class="sub-subtitulo m-0">noche y desayuno</p>
-                        <p class="texto">12,00€ - 11,00€</p>
-                    </div>
-                    <div class="conjunto">
-                        <img class="img-fluid" src="../img/tarifas/pension.svg" alt="logo-pension">
-                        <p class="sub-subtitulo m-0">pensión</p>
-                        <p class="texto">25,50€ - 24,00€</p>
-                    </div>
-                    <div class="conjunto">
-                        <img class="img-fluid" src="../img/tarifas/media-pension.svg" alt="logo-media-pension">
-                        <p class="sub-subtitulo m-0">media pensión</p>
-                        <p class="texto">19,00€ - 18,00€</p>
-                    </div>
+        </main>
+        <!-- Empieza el footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="redes">
+                    <a href="https://www.facebook.com/AlbergueLesEres/" target="_blank">
+                        <img src="../img/footer/logo-facebook.svg" alt="logo-facebook">
+                    </a>
+                    <a href="https://www.instagram.com/am_designer_am/" target="_blank">
+                        <img src="../img/footer/logo-instagram.svg" alt="logo-instagram">
+                    </a>
+                    <a href="https://www.twitter.com/am_designer_am/" target="_blank">
+                        <img src="../img/footer/logo-twitter.svg" alt="logo-twitter">
+                    </a>
                 </div>
-                <div class="precios precios_complementos">
-                    <div class="conjunto">
-                        <img class="img-fluid" src="../img/tarifas/sabanas.svg" alt="logo-sabanas">
-                        <p class="sub-subtitulo m-0">sabanas y mantas</p>
-                        <p class="texto">1,00€</p>
-                    </div>
-                    <div class="conjunto">
-                        <img class="img-fluid" src="../img/tarifas/ducha.svg" alt="logo-ducha">
-                        <p class="sub-subtitulo m-0">ducha</p>
-                        <p class="texto">1,00€</p>
-                    </div>
-                    <div class="rezagado conjunto">
-                        <img class="img-fluid" src="../img/tarifas/bici.svg" alt="logo-bici">
-                        <p class="sub-subtitulo m-0">garaje y limpieza de bici</p>
-                        <p class="texto">2,50€</p>
-                    </div>
-                </div>
-                <div class="precios precios_comida">
-                    <div class="conjunto">
-                        <img class="img-fluid" src="../img/tarifas/menu-diario.svg" alt="logo-menu-diario">
-                        <p class="sub-subtitulo m-0">menú diario</p>
-                        <p class="texto">9,00€</p>
-                    </div>
-                    <div class="conjunto">
-                        <img class="img-fluid" src="../img/tarifas/menu-finde.svg" alt="logo-menu-finde">
-                        <p class="sub-subtitulo m-0">menú fin de semana</p>
-                        <p class="texto">12,00€</p>
-                    </div>
-                </div>
+                <p>865 608 493</p>
+                <p>Partida nº1, 03814 Benasau, Spain</p>
+                <p>info@leseres.com</p>
             </div>
-        </section>
-        <!-- Linea vertical -->
-        <div class="linea-vertical"></div>
-    </main>
-    <!-- Empieza el footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="redes">
-                <a href="https://www.facebook.com/AlbergueLesEres/" target="_blank">
-                    <img src="../img/footer/logo-facebook.svg" alt="logo-facebook">
-                </a>
-                <a href="https://www.instagram.com/am_designer_am/" target="_blank">
-                    <img src="../img/footer/logo-instagram.svg" alt="logo-instagram">
-                </a>
-                <a href="https://www.twitter.com/am_designer_am/" target="_blank">
-                    <img src="../img/footer/logo-twitter.svg" alt="logo-twitter">
-                </a>
-            </div>
-            <p>865 608 493</p>
-            <p>Partida nº1, 03814 Benasau, Spain</p>
-            <p>info@leseres.com</p>
-        </div>
-    </footer>
+        </footer>
+    </div>
 </body>
 
 </html>

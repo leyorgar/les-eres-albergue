@@ -64,12 +64,48 @@ a
 // === NAVEGADOR ===
 header.header
     .navbar
+        background-color: $color-blanco
         height: 112px
+        .navbar-toggler
+            &:focus
+                outline: none
         .navbar-brand
             img
                 width: 250px
                 @media all and(max-width: 420px)
                     width: 150px
+        .navbar-responsive
+            height: calc(100vh - 112px)
+            position: fixed
+            bottom: 0
+            left: 0
+            right: 0
+            z-index: 1000
+            background-color: $color-amarillo
+            font-family: 'titulo'
+            font-size: 2.5rem
+            display: flex
+            align-items: center
+            justify-content: center
+            .nav-item
+                position: relative
+                display: flex
+                justify-content: center
+                align-items: center
+                a.nav-link
+                    font-weight: initial
+                    color: $color-negro
+                &:hover .linea_nav
+                    width: 80%
+                    transition: .5s all
+                .linea_nav
+                    position: absolute
+                    left: 0
+                    width: 0%
+                    height: 2px
+                    background-color: $color-negro
+                .active
+                    width: 100%
         .navbar-collapse
             .navbar-nav
                 display: block

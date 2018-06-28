@@ -65,12 +65,61 @@ a {
   text-align: justify; }
 
 header.header .navbar {
+  background-color: #ffffff;
   height: 112px; }
+  header.header .navbar .navbar-toggler:focus {
+    outline: none; }
   header.header .navbar .navbar-brand img {
     width: 250px; }
     @media all and (max-width: 420px) {
       header.header .navbar .navbar-brand img {
         width: 150px; } }
+  header.header .navbar .navbar-responsive {
+    height: calc(100vh - 112px);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: #F8D859;
+    font-family: 'titulo';
+    font-size: 2.5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+    header.header .navbar .navbar-responsive .nav-item {
+      position: relative;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; }
+      header.header .navbar .navbar-responsive .nav-item a.nav-link {
+        font-weight: initial;
+        color: #000000; }
+      header.header .navbar .navbar-responsive .nav-item:hover .linea_nav {
+        width: 80%;
+        -webkit-transition: .5s all;
+        -o-transition: .5s all;
+        transition: .5s all; }
+      header.header .navbar .navbar-responsive .nav-item .linea_nav {
+        position: absolute;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background-color: #000000; }
+      header.header .navbar .navbar-responsive .nav-item .active {
+        width: 100%; }
   header.header .navbar .navbar-collapse .navbar-nav {
     display: block; }
     header.header .navbar .navbar-collapse .navbar-nav .nav_arriba, header.header .navbar .navbar-collapse .navbar-nav .nav_abajo {
@@ -419,12 +468,12 @@ main.page--tarifas section.tarifas .tarifas_precios {
       main.page--tarifas section.tarifas .tarifas_precios .precios_complementos {
         display: grid;
         grid-template-columns: repeat(auto-fit, 100%); } }
-  @media all and (max-width: 430px) and (max-width: 750px) {
-    main.page--tarifas section.tarifas .tarifas_precios .precios_complementos .rezagado {
-      grid-column: 1/3; } }
-  @media all and (max-width: 430px) and (max-width: 430px) {
-    main.page--tarifas section.tarifas .tarifas_precios .precios_complementos .rezagado {
-      grid-column: 1/2; } }
+    @media all and (max-width: 750px) {
+      main.page--tarifas section.tarifas .tarifas_precios .precios_complementos .rezagado {
+        grid-column: 1/3; } }
+    @media all and (max-width: 430px) {
+      main.page--tarifas section.tarifas .tarifas_precios .precios_complementos .rezagado {
+        grid-column: 1/2; } }
   main.page--tarifas section.tarifas .tarifas_precios .precios_comida {
     max-width: 440px;
     margin: 0rem auto; }
