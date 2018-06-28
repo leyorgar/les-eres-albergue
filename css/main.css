@@ -305,8 +305,8 @@ main.page--tarifas section.tarifas .tarifas_precios {
   main.page--tarifas section.tarifas .tarifas_precios .precios_comida {
     max-width: 440px;
     margin: 1rem auto; }
-    main.page--tarifas section.tarifas .tarifas_precios .precios_comida img {
-      width: 100px; }
+  main.page--tarifas section.tarifas .tarifas_precios img {
+    width: 100px; }
 
 main.page--galeria section.galeria .sub-subtitulo {
   margin: 2rem 0;
