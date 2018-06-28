@@ -21,22 +21,86 @@
     <link rel="stylesheet" href="css/main.css">
     <!-- Enlaza fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <!-- linkar Jquery -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- Scroll cuando clikas animado -->
+    <script>
+        window.onload = function() {
+        // Select all links with hashes
+        $('a[href*="#"]')
+        // Remove links that don't actually link to anything
+        .not('[href="#"]')
+        .not('[href="#0"]')
+        .click(function(event) {
+        // On-page links
+        if (
+        location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+        &&
+        location.hostname == this.hostname
+        ) {
+        // Figure out element to scroll to
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+        // Does a scroll target exist?
+        if (target.length) {
+        // Only prevent default if animation is actually gonna happen
+        event.preventDefault();
+        $('html, body').animate({
+        scrollTop: target.offset().top
+        }, 1000, function() {
+        // Callback after animation
+        // Must change focus!
+        var $target = $(target);
+        $target.focus();
+        if ($target.is(":focus")) { // Checking if the target was focused
+        return false;
+        } else {
+        $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+        $target.focus(); // Set focus again
+        };
+        });
+        }
+        }
+        });
+        }
+    </script>
+    <!-- link Vue -->
+    <script src="js/vue.min.js"></script>
+    <script>
+        // Nueva nomenclatura para inicial script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cada vez que se inicie un VUE se pondrá este texto
+            var app = new Vue({
+                el: '#app',
+                // Las variables
+                data: {
+                    menuResponsive: false
+                },
+                //Crear evento
+                methods: {
+                    mostrarOcultarMenu: function () {
+                        this.menuResponsive =! this.menuResponsive
+                    }
+                }
+            })
+        })
+    </script>
 </head>
 
 <body>
     <!-- Navegador -->
-    <header class="header">
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="/">
-                <img class="img-fluid" src="img/logo.svg" alt="Logotipo de la empresa">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <div class="nav_arriba">
+    <div id="app">
+        <header class="header">
+            <nav v-bind:class="{ 'fixed-top': menuResponsive }" class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="/">
+                    <img class="img-fluid" src="img/logo.svg" alt="Logotipo de la empresa">
+                </a>
+                <button @click="mostrarOcultarMenu" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i v-if="!menuResponsive" class="fas fa-bars"></i>
+                    <i v-if="menuResponsive" class="fas fa-times"></i>
+                </button>
+                <div v-if="menuResponsive" class="navbar-responsive">
+                    <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="servicios/">Servicios</a>
                             <div class="linea_nav"></div>
@@ -45,8 +109,6 @@
                             <a class="nav-link" href="tarifas/">Tarifas</a>
                             <div class="linea_nav"></div>
                         </li>
-                    </div>
-                    <div class="nav_abajo">
                         <li class="nav-item">
                             <a class="nav-link" href="galeria/">Galería</a>
                             <div class="linea_nav"></div>
@@ -59,103 +121,131 @@
                             <a class="nav-link" href="contacto/">Contacto</a>
                             <div class="linea_nav"></div>
                         </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <div class="nav_arriba">
+                            <li class="nav-item">
+                                <a class="nav-link" href="servicios/">Servicios</a>
+                                <div class="linea_nav"></div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="tarifas/">Tarifas</a>
+                                <div class="linea_nav"></div>
+                            </li>
+                        </div>
+                        <div class="nav_abajo">
+                            <li class="nav-item">
+                                <a class="nav-link" href="galeria/">Galería</a>
+                                <div class="linea_nav"></div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="nosotros/">Nosotros</a>
+                                <div class="linea_nav"></div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contacto/">Contacto</a>
+                                <div class="linea_nav"></div>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- Termina el navegador -->
+
+        <!-- Empieza el contenido de la página -->
+        <main class="page--principal">
+            <!-- Imagen de inicio -->
+            <section class="imagen-inicio">
+                <div class="icono"><a href="#bajoscroll"><i class="fas fa-angle-down"></i></a></div>
+            </section>
+            <!-- Linea vertical -->
+            <a name="bajoscroll"></a>
+            <div class="linea-vertical"></div>
+            <!-- Seccion servicios -->
+            <section class="servicios">
+                <h1 class="titulo">Servicios</h1>
+                <div class="row servicios-principal">
+                    <!-- Columna 1 -->
+                    <div class="col-sm-6 servicios-columna">
+                        <!-- Imagen -->
+                        <img class="img-fluid columna-icono" src="img/servicios/albergue.png" alt="Icono de un albergue">
+                        <!-- Texto -->
+                        <p class="texto">
+                            Nuestro albergue rural dispone de 20 plazas para pernoctar, distribuidas en dos habitaciones con 5 literas dobles cada una. 
+                        </p>
                     </div>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <!-- Termina el navegador -->
-
-    <!-- Empieza el contenido de la página -->
-    <main class="page--principal">
-        <!-- Imagen de inicio -->
-        <section class="imagen-inicio">
-            <div class="icono"><a href="#bajoscroll"><i class="fas fa-angle-down"></i></a></div>
-        </section>
-        <!-- Linea vertical -->
-        <a name="bajoscroll"></a>
-        <div class="linea-vertical"></div>
-        <!-- Seccion servicios -->
-        <section class="servicios">
-            <h1 class="titulo">Servicios</h1>
-            <div class="row servicios-principal">
-                <!-- Columna 1 -->
-                <div class="col-sm-6 servicios-columna">
-                    <!-- Imagen -->
-                    <img class="img-fluid columna-icono" src="img/servicios/albergue.png" alt="Icono de un albergue">
-                    <!-- Texto -->
-                    <p class="texto">
-                        Nuestro albergue rural dispone de 20 plazas para pernoctar, distribuidas en dos habitaciones con 5 literas dobles cada una. 
-                    </p>
+                    <!-- Fin de la Columna 1 -->
+                    <!-- Columna 2 -->
+                    <div class="col-sm-6 servicios-columna">
+                        <!-- Imagen -->
+                        <img class="img-fluid columna-icono" src="img/servicios/multiaventura.png" alt="Icono que representa actividades de multiaventura">
+                        <!-- Texto -->
+                        <p class="texto">
+                            Colaboramos con grieta-aventura que ofrecen actividades como kayak, paintball, escalada, barranquismo Acuático, vía ferrata, espeleología, rapel, senderismo, parapente...
+                        </p>
+                    </div>
                 </div>
-                <!-- Fin de la Columna 1 -->
-                <!-- Columna 2 -->
-                <div class="col-sm-6 servicios-columna">
-                    <!-- Imagen -->
-                    <img class="img-fluid columna-icono" src="img/servicios/multiaventura.png" alt="Icono que representa actividades de multiaventura">
-                    <!-- Texto -->
-                    <p class="texto">
-                        Colaboramos con grieta-aventura que ofrecen actividades como kayak, paintball, escalada, barranquismo Acuático, vía ferrata, espeleología, rapel, senderismo, parapente...
-                    </p>
+                <h3 class="sub-subtitulo">Benisa para aventureros</h3>
+                <div class="imagen_iconos-aventura">
+                    <img src="img/principal/iconos-aventura.svg" alt="iconos-aventura">
                 </div>
-            </div>
-            <h3 class="sub-subtitulo">Benisa para aventureros</h3>
-            <div class="imagen_iconos-aventura">
-                <img src="img/principal/iconos-aventura.svg" alt="iconos-aventura">
-            </div>
-        </section>
-        <!-- Linea vertical -->
-        <div class="linea-vertical"></div>
-        <!-- Imagen centro de la página con zoom -->
-        <section class="imagen-medio">
-            <div class="imagen"></div>
-        </section>
-        <!-- Linea vertical -->
-        <div class="linea-vertical"></div>
-        <!-- Seccion galeria -->
-        <section class="galeria">
-            <h1 class="titulo">Galería</h1>
-            <a href="galeria/">
-                <div class="galeria-principal">
-                    <div class="galeria-col col-izq"></div>
-                    <div class="galeria-col col-centro"></div>
-                    <div class="galeria-col col-drcha"></div>
-                </div>
-            </a>
-        </section>
-        <!-- Linea vertical -->
-        <div class="linea-vertical"></div>
-        <!-- Seccion contacto -->
-        <section class="contacto">
-            <h1 class="titulo">Contacto</h1>
-            <div class="contacto_mapa">
-                <div class="mapa_direccion">
-                    <h3 class="sub-subtitulo">Donde encontrarnos</h3>
-                    <p class="texto">Partida nº1, 03814 Benasau, Spain</p>
-                </div>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3113.649206842179!2d-0.5274078574295478!3d38.702901443105645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd61812d49d79143%3A0xee50fe8bdeffce0!2sUnnamed+Road%2C+03819+Alcoy%2C+Alicante!5e0!3m2!1ses!2ses!4v1529841127857" width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
-            </div>
-        </section>
-    </main>
-    <!-- Termina el contenido de la página -->
-
-    <!-- Empieza el footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="redes">
-                <a href="https://www.facebook.com/AlbergueLesEres/" target="_blank">
-                    <img src="img/footer/logo-facebook.svg" alt="logo-facebook">
+            </section>
+            <!-- Linea vertical -->
+            <div class="linea-vertical"></div>
+            <!-- Imagen centro de la página con zoom -->
+            <section class="imagen-medio">
+                <div class="imagen"></div>
+            </section>
+            <!-- Linea vertical -->
+            <div class="linea-vertical"></div>
+            <!-- Seccion galeria -->
+            <section class="galeria">
+                <h1 class="titulo">Galería</h1>
+                <a href="galeria/">
+                    <div class="galeria-principal">
+                        <div class="galeria-col col-izq"></div>
+                        <div class="galeria-col col-centro"></div>
+                        <div class="galeria-col col-drcha"></div>
+                    </div>
                 </a>
+            </section>
+            <!-- Linea vertical -->
+            <div class="linea-vertical"></div>
+            <!-- Seccion contacto -->
+            <section class="contacto">
+                <h1 class="titulo">Contacto</h1>
+                <div class="contacto_mapa">
+                    <div class="mapa_direccion">
+                        <h3 class="sub-subtitulo">Donde encontrarnos</h3>
+                        <p class="texto">Partida nº1, 03814 Benasau, Spain</p>
+                    </div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3113.649206842179!2d-0.5274078574295478!3d38.702901443105645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd61812d49d79143%3A0xee50fe8bdeffce0!2sUnnamed+Road%2C+03819+Alcoy%2C+Alicante!5e0!3m2!1ses!2ses!4v1529841127857" width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+            </section>
+        </main>
+        <!-- Termina el contenido de la página -->
+
+        <!-- Empieza el footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="redes">
+                    <a href="https://www.facebook.com/AlbergueLesEres/" target="_blank">
+                        <img src="img/footer/logo-facebook.svg" alt="logo-facebook">
+                    </a>
+                </div>
+                <!-- Telefono -->
+                <a class="texto" href="callto:+34865608493">(+34) 865 608 493</a>
+                <!-- Lugar -->
+                <p>Partida nº1, 03814 Benasau, Spain</p>
+                <!-- Email -->
+                <a class="texto" href="mailto:info@albergueleseres.com" title="">info@albergueleseres.com</a>
             </div>
-            <!-- Telefono -->
-            <a class="texto" href="callto:+34865608493">(+34) 865 608 493</a>
-            <!-- Lugar -->
-            <p>Partida nº1, 03814 Benasau, Spain</p>
-            <!-- Email -->
-            <a class="texto" href="mailto:info@albergueleseres.com" title="">info@albergueleseres.com</a>
-        </div>
-    </footer>
-    <!-- Termina el footer -->
+        </footer>
+        <!-- Termina el footer -->
+    </div>
 </body>
 
 </html>
